@@ -56,11 +56,7 @@ const Register = () => {
                     </Link>
                 </div>
             </div>
-            <div className="flex">
-                    <button className="w-full px-6 py-5 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
-                    
-                    </button>
-            </div>
+         
         </form>
     </div>
 </div>
