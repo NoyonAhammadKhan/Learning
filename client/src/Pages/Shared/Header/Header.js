@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaMoon, FaSun } from 'react-icons/fa'
 
 const Header = () => {
+  const [dark,setDark]=useState(false);
+  const handleDark = ()=>{
+    setDark(!dark)
+  }
     return (
      <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -28,9 +33,13 @@ const Header = () => {
         <li><Link to='/faq'>FAQ</Link></li>
     </ul>
   </div>
+  
   <div className="navbar-end">
+    {dark ? <button className='btn btn-outline mr-4' onClick={handleDark}><FaSun/></button>: 
+    <button className='btn btn-outline mr-4' onClick={handleDark} ><FaMoon></FaMoon></button>}
     <Link to='/login' className="btn">Login</Link>
   </div>
+ 
 </div>
     );
 };
