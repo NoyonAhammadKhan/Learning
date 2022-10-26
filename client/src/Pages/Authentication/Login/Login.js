@@ -20,16 +20,20 @@ const Login = () => {
       .catch(err => console.err(err))
   }
   const handleEmailLogin = (event) => {
+    console.log('hello')
+    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(email, password)
     emailLogin(email, password)
-      .then(res => res.user)
+      .then(res => console.log(res.user.email))
       .catch(err => console.error(err))
   }
+  console.log('hddh')
   return (
 
-    <div className="bg-no-repeat bg-cover bg-center relative" style={{ "background-image": "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80)" }}><div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
+    <div className="bg-no-repeat bg-cover bg-center relative" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80)" }}><div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
           <div className="self-start hidden lg:flex flex-col  text-white">
@@ -45,7 +49,6 @@ const Login = () => {
               <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
               <p className="text-gray-500">Please sign in to your account.</p>
             </div>
-            
               <div className="space-y-5">
               <form onSubmit={handleEmailLogin}>
               <div className="space-y-2">
@@ -61,18 +64,18 @@ const Login = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
-                  <label for="remember_me" className="ml-2 block text-sm text-gray-800">
+                  <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-800">
                     Remember me
                   </label>
                 </div>
                 <div className="text-sm">
-                  <a href="#" className="text-green-400 hover:text-green-500">
+                  {/* <a href="#" className="text-green-400 hover:text-green-500">
                     Forgot your password?
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div>
-                <button onClick={handleEmailLogin} type="submit" className="w-full flex mt-3 justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                <button  type='submit' className="w-full flex mt-3 justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                   Sign in
                 </button>
               </div>
@@ -103,7 +106,7 @@ const Login = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
-                  <label for="remember_me" className="ml-2 block text-sm text-gray-800">
+                  <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-800">
                     Remember me
                   </label>
                 </div>
