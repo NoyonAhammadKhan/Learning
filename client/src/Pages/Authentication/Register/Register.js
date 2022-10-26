@@ -20,13 +20,13 @@ const Register = () => {
         <form action="">
             <div className="mt-4">
                 <div>
-                    <label className="block" for="Name">Name</label>
+                    <label className="block" for="Name">Full Name</label>
                             <input type="text" placeholder="Name"
                                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                 </div>
                 <div>
                     <label className="block" for="PhotURL">PhotoURL</label>
-                            <input type="text" placeholder="Name"
+                            <input type="text" placeholder="PhotoURL"
                                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                 </div>
                 <div className="mt-4">

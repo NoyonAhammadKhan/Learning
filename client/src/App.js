@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './Pages/Authentication/Login/Login';
-import Register from './Pages/Authentication/Register/Register';
 import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Routers/Routes';
+import CourseDetails from './Pages/Courses/CourseDetails/CourseDetails';
 
 function App() {
   return (
     <div className="App">
-    <RouterProvider router={router}/>
+   
+       <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
