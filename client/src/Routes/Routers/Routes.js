@@ -4,6 +4,7 @@ import Main from '../../layouts/Main';
 import Login from '../../Pages/Authentication/Login/Login';
 import Register from '../../Pages/Authentication/Register/Register';
 import Blogs from '../../Pages/Blog/Blogs/Blogs';
+import CourseDetails from '../../Pages/Courses/CourseDetails/CourseDetails';
 import Courses from '../../Pages/Courses/Courses/Courses';
 import FAQ from '../../Pages/FAQ/FAQ';
 import Home from '../../Pages/Home/Home/Home';
@@ -40,9 +41,14 @@ const router=createBrowserRouter([
                 element:<Blogs/>
             },
             {
+                path:'/course-details/:id',
+                element:<CourseDetails/>
+            },
+            {
                 path:"*",
                 element:<NotFound/>
             }
+
         ]
     }
 ])

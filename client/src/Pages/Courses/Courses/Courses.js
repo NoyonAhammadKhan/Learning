@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
 import CourseDetails from '../CourseDetails/CourseDetails';
 
@@ -10,7 +10,12 @@ const Courses = () => {
 
          <div className='ml-3 grid grid-cols-1 gap-4'>
          <div>
-            <div className="grid w-50 h-20 rounded bg-accent text-accent-content place-content-center">2</div> 
+          {
+            courses.map(course=> <Link to={`/course-details/${course._id}`}>
+              <div className="grid mb-3 w-50 h-20 rounded bg-accent text-accent-content place-content-center">{course.courseName}</div> 
+            </Link>)
+          }
+            
           </div>
         </div>   
         <div className='grid  grid-cols-3  col-span-3 gap-3'>
