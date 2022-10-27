@@ -4,6 +4,7 @@ import Main from '../../layouts/Main';
 import Login from '../../Pages/Authentication/Login/Login';
 import Register from '../../Pages/Authentication/Register/Register';
 import Blogs from '../../Pages/Blog/Blogs/Blogs';
+import Checkout from '../../Pages/Checkout/Checkout';
 import CourseDetails from '../../Pages/Courses/CourseDetails/CourseDetails';
 import Courses from '../../Pages/Courses/Courses/Courses';
 import FAQ from '../../Pages/FAQ/FAQ';
@@ -29,8 +30,9 @@ const router=createBrowserRouter([
             },
             {
                 path:'/courses',
+              
+                loader:()=>fetch('https://education-noyonahammadkhan.vercel.app/courses'),
                 element:<Courses/>,
-                loader:()=>fetch('https://education-noyonahammadkhan.vercel.app/courses')
             },
             {
                 path:'/faq',
@@ -42,7 +44,13 @@ const router=createBrowserRouter([
             },
             {
                 path:'/course-details/:id',
-                element:<CourseDetails/>
+                loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
+                element:<CourseDetails/>,
+            },
+            {
+                path:'/checkout/:id',
+                loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
+                element:<Checkout/>
             },
             {
                 path:"*",
