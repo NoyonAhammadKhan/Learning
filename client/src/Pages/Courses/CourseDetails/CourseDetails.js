@@ -56,7 +56,7 @@ const CourseDetails = () => {
           </div>
           <div className='grid grid-cols-2'>
           <div>
-            <img src={picture} style={{width:'400px'}} alt="" />
+            <img src={'https://postimg.cc/mcmtnVdD'} style={{width:'400px'}} alt="" />
           </div>
           <div>
             <p>{courseDetail}</p>

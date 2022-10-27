@@ -7,8 +7,8 @@ const Checkout = () => {
     return (
         <>
         <h1 className='text-5xl'>CheckOut This Course</h1>
-        <div className='grid grid-rows-3 border border-indigo-600 w-2/4 mr-auto ml-auto'>
-            <div>
+        <div className='grid grid-rows-1 border border-indigo-600 w-2/4 mr-auto ml-auto'>
+            <div className='mt-10'> 
                 <h1 className='text-3xl'>Course Name:{courseName}</h1>
                 <h2 className='text-3xl'>Instructor Name:{instructorName}</h2>
                 <h2 className='text-3xl'>Course Duration:{courseDuration} Hours</h2>
