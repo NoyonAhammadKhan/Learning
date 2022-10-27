@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa';
+import {GrLogout} from 'react-icons/gr';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
   const [dark,setDark]=useState(false);
   const handleDark = ()=>{
     setDark(!dark)
   }
+  const {user,logoutUser}=useContext(AuthContext);
     return (
      <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -37,7 +40,14 @@ const Header = () => {
   <div className="navbar-end">
     {dark ? <button className='btn btn-outline mr-4' onClick={handleDark}><FaSun/></button>: 
     <button className='btn btn-outline mr-4' onClick={handleDark} ><FaMoon></FaMoon></button>}
-    <Link to='/login' className="btn">Login</Link>
+    {user ?
+    <div className='inline flex'> 
+    <span className='mr-4'><img style={{width:'50px',borderRadius:'50%'}} src={user.photoURL} title={user.displayName}/></span>
+    <span className="btn" onClick={logoutUser}>Logout</span>
+    </div>
+    : 
+    
+    (<Link to='/login' className="btn">Login</Link>)}
   </div>
  
 </div>

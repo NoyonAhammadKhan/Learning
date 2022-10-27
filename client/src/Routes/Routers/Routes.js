@@ -10,6 +10,7 @@ import Courses from '../../Pages/Courses/Courses/Courses';
 import FAQ from '../../Pages/FAQ/FAQ';
 import Home from '../../Pages/Home/Home/Home';
 import NotFound from '../../Pages/Shared/NotFound/NotFound';
+import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
 const router=createBrowserRouter([
     {
@@ -49,8 +50,9 @@ const router=createBrowserRouter([
             },
             {
                 path:'/checkout/:id',
+               
+                element:<PrivateRoutes><Checkout/></PrivateRoutes>,
                 loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
-                element:<Checkout/>
             },
             {
                 path:"*",

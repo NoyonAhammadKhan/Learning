@@ -1,33 +1,60 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
   const { providerLogin, emailLogin } = useContext(AuthContext);
+  const [error,setError]=useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const from = location.state?.from?.pathname || '/';
   const handleGoogle = () => {
     providerLogin(googleProvider)
-      .then(res => res.user)
+    .then(result => {
+      const user = result.user;
+      setError('');
+      if(user.emailVerified){
+          navigate(from, {replace: true});
+      }
+     
+    })
       .catch(err => console.err(err))
   }
   const handleGithub = () => {
     providerLogin(githubProvider)
-      .then(res => res.user)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setError('');
+      if(user.emailVerified){
+          navigate(from, {replace: true});
+      }
+     
+    })
       .catch(err => console.err(err))
   }
   const handleEmailLogin = (event) => {
-    console.log('hello')
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password)
     emailLogin(email, password)
-      .then(res => console.log(res.user.email))
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError('');
+        if(user.emailVerified){
+            navigate(from, {replace: true});
+        }
+       
+      })
       .catch(err => console.error(err))
   }
   console.log('hddh')
