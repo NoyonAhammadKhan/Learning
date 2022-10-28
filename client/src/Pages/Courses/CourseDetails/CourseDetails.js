@@ -9,7 +9,6 @@ import PDFFile from '../../../utils/PDFFIle/PDFFile';
 import Pdf from 'react-to-pdf';
 const CourseDetails = () => {
   const courseDetails=useLoaderData();
-  console.log(courseDetails)
   const {courseName, price,courseDetail,_id,instructorName,courseDuration,instructor,picture}=courseDetails;
   const ref = React.createRef();
   return (

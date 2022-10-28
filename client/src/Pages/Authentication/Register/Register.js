@@ -12,16 +12,14 @@ const Register = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password)
         createUser(email,password)
         .then(res=>{
-            // console.log(res.user);
             navigate('/login');
             
         })
         .catch(err=>console.error(err))
     }
-    console.log()
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
