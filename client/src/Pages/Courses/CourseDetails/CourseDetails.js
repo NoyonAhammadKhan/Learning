@@ -44,7 +44,7 @@ const CourseDetails = () => {
     <div className='grid grid-rows-1 border border-indigo-600 w-2/4 mr-auto ml-auto bg-gray-200'>
         <div className='grid grid-cols-1'>
           <h1 className='text-5xl inline-block'>{courseName}(<Pdf targetRef={ref} filename="course_details.pdf">
-        {({ toPdf }) => <button className="btn text-3xl btn-info ml-3" onClick={toPdf}>DownLoad Pdf Pdf<FaRegFilePdf/></button>}
+        {({ toPdf }) => <button className="btn text-3xl btn-info ml-3" onClick={toPdf}>DownLoad Pdf<FaRegFilePdf/></button>}
       </Pdf>)</h1>
           {/* <button className="btn text-3xl btn-info ml-3"><p>Download</p> <FaRegFilePdf/></button> */}
            {
@@ -65,7 +65,8 @@ const CourseDetails = () => {
           <div>
             <img src={picture} style={{width:'400px'}} alt="" />
           </div>
-          <div>
+          <div ref={ref}>
+            <p className='text text-5xl'>{courseName}</p>
             <p>{courseDetail}</p>
           </div>
         </div>
@@ -77,15 +78,14 @@ const CourseDetails = () => {
         </div>
         
 
+    </div>  
+    <div>
+    <div className='hidden'>
+            <h1 className='text text-5xl'>{courseName}</h1>  
+            <h2 className='text text-xl'>{courseDetail}</h2>
+          </div>  
     </div>
-          <div>
-          <div ref={ref}>
-            <h1 className='text text-5xl'>{courseName}</h1>
-            <h1 className='text text-2xl'>Instructor Name:{instructorName}</h1>
-           <h1 className='text text-xl'>{courseDetail}</h1>
-           <h2 className='text text-2xl'>Course Price:{price}</h2>
-      </div>
-          </div>
+         
    </div>
   );
 };
