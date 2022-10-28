@@ -7,7 +7,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
   const { providerLogin, emailLogin } = useContext(AuthContext);
-  const [error,setError]=useState('');
+  const [error,setError]=useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const googleProvider = new GoogleAuthProvider();
@@ -23,7 +23,7 @@ const Login = () => {
       }
      
     })
-      .catch(err => console.err(err))
+      .catch(err => setError(true))
   }
   const handleGithub = () => {
     providerLogin(githubProvider)
@@ -36,7 +36,7 @@ const Login = () => {
       }
      
     })
-      .catch(err => console.err(err))
+      .catch(err => setError(true))
   }
   const handleEmailLogin = (event) => {
     event.preventDefault();
@@ -55,7 +55,7 @@ const Login = () => {
         }
        
       })
-      .catch(err => console.error(err))
+      .catch(err => setError(true))
   }
   console.log('hddh')
   return (
@@ -159,8 +159,6 @@ const Login = () => {
               </div>
             </div> */}
 
-
-
             <div>
               <p>Don't have an account?
                 <Link to='/register' className="text-blue-800 hover:text-green-500 ">Register</Link></p></div>
@@ -169,10 +167,16 @@ const Login = () => {
               <span>
                 Copyright © 2021-2022
                </span>
+               <div>
+        {
+          error && alert('Email Or Password Incorrect')
+        }
+      </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
 
   );
