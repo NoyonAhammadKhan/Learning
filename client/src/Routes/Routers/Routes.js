@@ -10,52 +10,52 @@ import Courses from '../../Pages/Courses/Courses/Courses';
 import FAQ from '../../Pages/FAQ/FAQ';
 import Home from '../../Pages/Home/Home/Home';
 import NotFound from '../../Pages/Shared/NotFound/NotFound';
-import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main/>,
-        children:[
+        path: '/',
+        element: <Main />,
+        children: [
             {
-                path:'/',
-                element:<Home/>
+                path: '/',
+                element: <Home />
             },
             {
-                path:'/login',
-                element:<Login/>
+                path: '/login',
+                element: <Login />
             },
             {
-                path:'/register',
-                element:<Register/>
+                path: '/register',
+                element: <Register />
             },
             {
-                path:'/courses',
-              
-                loader:()=>fetch('https://education-noyonahammadkhan.vercel.app/courses'),
-                element:<Courses/>,
+                path: '/courses',
+
+                loader: () => fetch('https://education-noyonahammadkhan.vercel.app/courses'),
+                element: <Courses />,
             },
             {
-                path:'/faq',
-                element:<FAQ/>
+                path: '/faq',
+                element: <FAQ />
             },
             {
-                path:'/blogs',
-                element:<Blogs/>
+                path: '/blogs',
+                element: <Blogs />
             },
             {
-                path:'/course-details/:id',
-                loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
-                element:<CourseDetails/>,
+                path: '/course-details/:id',
+                loader: ({ params }) => fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
+                element: <CourseDetails />,
             },
             {
-                path:'/checkout/:id',
-                element:<PrivateRoutes><Checkout/></PrivateRoutes>,
-                loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
+                path: '/checkout/:id',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
             },
             {
-                path:"*",
-                element:<NotFound/>
+                path: "*",
+                element: <NotFound />
             }
 
         ]

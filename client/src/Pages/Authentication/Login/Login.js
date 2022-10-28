@@ -18,7 +18,7 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       setError('');
-      if(user.emailVerified){
+      if(user){
           navigate(from, {replace: true});
       }
      
@@ -31,7 +31,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       setError('');
-      if(user.emailVerified){
+      if(user){
           navigate(from, {replace: true});
       }
      
@@ -50,7 +50,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError('');
-        if(user.emailVerified){
+        if(user){
             navigate(from, {replace: true});
         }
        
