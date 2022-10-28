@@ -50,7 +50,6 @@ const router=createBrowserRouter([
             },
             {
                 path:'/checkout/:id',
-               
                 element:<PrivateRoutes><Checkout/></PrivateRoutes>,
                 loader:({params})=>fetch(`https://education-noyonahammadkhan.vercel.app/course/${params.id}`),
             },

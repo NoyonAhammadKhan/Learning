@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+
+.home-back{
+  
+}
+
+.main-container{
+    background-color: green;
+    height: 100vh;
+    padding: 1rem;
+    background-image: url('../../../image/background/bg-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
